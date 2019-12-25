@@ -1,0 +1,10 @@
+spring:
+  profiles: development
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+server:
+  port: 9000
+  servlet:
+    context-path: /
