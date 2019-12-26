@@ -40,7 +40,7 @@ public class RequestService {
             response.setStatus(ruleEntity.getReturnHttpCode());
             response.setBody(formatResponseBody(ruleEntity.getReturnJson()));
         });
-//        boolean matched = conditionService.testRequest(request, request.getBody());
+
         log.info("processing result for path [{}] , status = [{}], body = [{}]", request.getPath(), response.getStatus(), response.getBody());
         return response;
     }
