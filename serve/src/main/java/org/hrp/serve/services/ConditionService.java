@@ -7,7 +7,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.BooleanUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.hrp.serve.models.HttpRequest;
+import org.hrp.lib.models.HttpRequest;
 import org.springframework.stereotype.Service;
 
 import javax.script.Bindings;

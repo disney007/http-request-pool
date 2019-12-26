@@ -1,4 +1,4 @@
-package org.hrp.serve.models;
+package org.hrp.lib.models;
 
 import com.google.common.collect.ImmutableMap;
 import lombok.Getter;

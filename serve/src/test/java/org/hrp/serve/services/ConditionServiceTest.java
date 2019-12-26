@@ -2,7 +2,7 @@ package org.hrp.serve.services;
 
 import org.hrp.serve.IntegrationTest;
 import org.hrp.serve.Utils;
-import org.hrp.serve.models.HttpRequest;
+import org.hrp.lib.models.HttpRequest;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 

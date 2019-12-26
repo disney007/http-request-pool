@@ -2,7 +2,7 @@ package org.hrp.serve;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
-import org.hrp.serve.models.HttpRequest;
+import org.hrp.lib.models.HttpRequest;
 
 public class Utils {
     public static HttpRequest createDefaultHttpRequest() {
