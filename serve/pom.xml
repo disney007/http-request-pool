@@ -95,6 +95,11 @@
             <version>${version.spring-boot}</version>
         </dependency>
         <dependency>
+            <groupId>http-request-pool</groupId>
+            <artifactId>lib</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
             <version>${version.commons-lang3}</version>

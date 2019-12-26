@@ -83,4 +83,9 @@ public class HttpRequest {
         }
         return ImmutableMap.of();
     }
+
+    @Override
+    public String toString() {
+        return String.format("path = [%s], method = [%s]", path, method);
+    }
 }

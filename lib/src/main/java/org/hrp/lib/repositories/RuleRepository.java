@@ -3,6 +3,8 @@ package org.hrp.lib.repositories;
 import lombok.RequiredArgsConstructor;
 import org.hrp.lib.entities.RuleEntity;
 import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -19,6 +21,11 @@ public class RuleRepository {
 
     public List<RuleEntity> findAll() {
         return mongoTemplate.findAll(RuleEntity.class);
+    }
+
+    public List<RuleEntity> findByPath(String path) {
+        Query query = Query.query(Criteria.where("path").is(path));
+        return mongoTemplate.find(query, RuleEntity.class);
     }
 
     public RuleEntity findById(String id) {

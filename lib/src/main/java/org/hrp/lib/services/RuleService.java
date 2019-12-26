@@ -47,4 +47,8 @@ public class RuleService {
     public List<RuleEntity> findAllRules() {
         return ruleRepository.findAll();
     }
+
+    public List<RuleEntity> findByPath(String path) {
+        return ruleRepository.findByPath(path);
+    }
 }
