@@ -1,0 +1,14 @@
+version: '3'
+services:
+  management:
+    image: http-request-pool/management:latest
+    environment:
+      SPRING_PROFILES_ACTIVE: sandbox
+    ports:
+      - "9001:9001"
+  serve:
+    image: http-request-pool/serve:latest
+    environment:
+      SPRING_PROFILES_ACTIVE: sandbox
+    ports:
+      - "9000:9000"

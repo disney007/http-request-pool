@@ -1,0 +1,10 @@
+spring:
+  profiles: sandbox
+  data:
+    mongodb:
+      host: mongodb
+      port: 27017
+server:
+  port: 9001
+  servlet:
+    context-path: /api
