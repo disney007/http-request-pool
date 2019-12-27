@@ -38,6 +38,10 @@ public class ConditionService {
     public boolean testRequest(HttpRequest request, String condition) {
         try {
             log.info("test condition for path = [{}], condition = [{}]", request.getPath(), condition);
+            if (StringUtils.isEmpty(condition)) {
+                return true;
+            }
+
             CompiledScript script = prepareScript(condition);
             Bindings bindings = prepareBindings(request);
             boolean result = parseResult(script.eval(bindings));

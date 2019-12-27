@@ -16,6 +16,8 @@ public class ConditionServiceTest extends IntegrationTest {
 
     @Test
     public void test_testRequest() {
+        doTest_testRequest(null, true);
+        doTest_testRequest("", true);
         doTest_testRequest("$path === '/test'", true);
         doTest_testRequest("$method === 'post'", true);
         doTest_testRequest("$queryParams.x === 'hello'", true);
