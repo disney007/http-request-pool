@@ -5,7 +5,6 @@ import org.hrp.lib.entities.RuleEntity;
 import org.hrp.lib.repositories.RuleRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -42,13 +41,5 @@ public class RuleService {
             ruleEntity.setIsEnabled(isEnabled);
             ruleRepository.save(ruleEntity);
         }
-    }
-
-    public List<RuleEntity> findAllRules() {
-        return ruleRepository.findAll();
-    }
-
-    public List<RuleEntity> findByPath(String path) {
-        return ruleRepository.findByPath(path);
     }
 }

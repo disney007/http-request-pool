@@ -2,15 +2,14 @@ package org.hrp.management.controllers;
 
 import lombok.RequiredArgsConstructor;
 import org.hrp.lib.entities.RuleEntity;
+import org.hrp.lib.repositories.RuleRepository;
 import org.hrp.lib.services.RuleService;
 import org.hrp.management.models.CreateRuleRecord;
 import org.hrp.management.models.EditRuleRecord;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @RestController
@@ -19,6 +18,7 @@ import java.util.List;
 public class RuleController {
 
     final RuleService ruleService;
+    final RuleRepository repository;
 
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     public RuleEntity createRule(@RequestBody @Valid CreateRuleRecord record) {
@@ -34,6 +34,11 @@ public class RuleController {
 
     @RequestMapping(value = "/all", method = RequestMethod.GET)
     public List<RuleEntity> findAllRules() {
-        return ruleService.findAllRules();
+        return repository.findAll();
+    }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    public void deleteById(@PathVariable("id") @Valid @NotNull String id) {
+        repository.deleteById(id);
     }
 }

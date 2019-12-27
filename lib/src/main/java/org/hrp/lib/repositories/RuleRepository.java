@@ -31,4 +31,9 @@ public class RuleRepository {
     public RuleEntity findById(String id) {
         return mongoTemplate.findById(id, RuleEntity.class);
     }
+
+    public void deleteById(String id) {
+        Query query = Query.query(Criteria.where("_id").is(id));
+        mongoTemplate.remove(query, RuleEntity.class);
+    }
 }

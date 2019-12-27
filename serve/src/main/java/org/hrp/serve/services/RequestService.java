@@ -5,9 +5,9 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.hrp.lib.entities.RuleEntity;
-import org.hrp.lib.services.RuleService;
 import org.hrp.lib.models.HttpRequest;
 import org.hrp.lib.models.HttpResponse;
+import org.hrp.lib.repositories.RuleRepository;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -20,14 +20,14 @@ import java.util.Map;
 public class RequestService {
 
     final ConditionService conditionService;
-    final RuleService ruleService;
+    final RuleRepository ruleRepository;
     final ObjectMapper objectMapper;
 
     public HttpResponse processRequest(HttpRequest request) {
         log.info("start processing request: {}", request);
         HttpResponse response = new HttpResponse();
 
-        List<RuleEntity> rules = ruleService.findByPath(request.getPath());
+        List<RuleEntity> rules = ruleRepository.findByPath(request.getPath());
         log.info("found {} rules for path [{}]", rules.size(), request.getPath());
         if (rules.isEmpty()) {
             return response;
