@@ -14,4 +14,6 @@ public class CreateRuleRecord {
     @NotNull
     Integer returnHttpCode;
     String returnJson;
+    @NotNull
+    Boolean isEnabled;
 }

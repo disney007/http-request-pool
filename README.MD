@@ -12,14 +12,15 @@ Note:
 * `management` server is running on port 9001 to for rules setup and request history management
 * `serve` server is running on port 9000 to accept user http requests
 ### Set url to return mocked response
-Send following POST request to `http://localhost:9001/api/rules/create`
+Send following POST request to `http://localhost:9001/api/rules`
 ```json
     {
     	"path": "/test",
     	"method": "post",
     	"condition": "$body.value == \"abc\"",
     	"returnHttpCode":200,
-    	"returnJson": "{\"abc\":123}"
+    	"returnJson": "{\"abc\":123}",
+    	"isEnabled": true
     }
 ```
 - `path`: set rule to which path

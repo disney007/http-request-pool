@@ -33,7 +33,8 @@ public class RequestService {
             return response;
         }
 
-        rules.stream().filter(rule -> (StringUtils.equalsIgnoreCase(rule.getMethod(), request.getMethod()) || StringUtils.equals(rule.getMethod(), "*"))
+        rules.stream().filter(rule -> rule.getIsEnabled()
+                && (StringUtils.equalsIgnoreCase(rule.getMethod(), request.getMethod()) || StringUtils.equals(rule.getMethod(), "*"))
                 && conditionService.testRequest(request, rule.getCondition())
         ).findFirst().ifPresent(ruleEntity -> {
             log.info("found rule [{}] for path [{}]", ruleEntity, request.getPath());

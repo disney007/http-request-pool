@@ -2,10 +2,9 @@ package org.hrp.lib.services;
 
 import lombok.RequiredArgsConstructor;
 import org.hrp.lib.entities.RuleEntity;
+import org.hrp.lib.models.RuleRecord;
 import org.hrp.lib.repositories.RuleRepository;
 import org.springframework.stereotype.Service;
-
-import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
@@ -13,15 +12,15 @@ public class RuleService {
 
     final RuleRepository ruleRepository;
 
-    public RuleEntity createRule(String path, String method, String condition, Integer returnHttpCode, String returnJson) {
+    public RuleEntity createRule(RuleRecord ruleRecord) {
         RuleEntity ruleEntity = RuleEntity.builder()
-                .id(UUID.randomUUID().toString())
-                .path(path)
-                .method(method)
-                .condition(condition)
-                .returnHttpCode(returnHttpCode)
-                .returnJson(returnJson)
-                .isEnabled(true)
+                .id(ruleRecord.getId())
+                .path(ruleRecord.getPath())
+                .method(ruleRecord.getMethod())
+                .condition(ruleRecord.getCondition())
+                .returnHttpCode(ruleRecord.getReturnHttpCode())
+                .returnJson(ruleRecord.getReturnJson())
+                .isEnabled(ruleRecord.getIsEnabled())
                 .createdAt(System.currentTimeMillis())
                 .build();
         ruleRepository.save(ruleEntity);
@@ -29,16 +28,15 @@ public class RuleService {
         return ruleEntity;
     }
 
-    public void editRule(String id, String path, String method, String condition, Integer returnHttpCode, String returnJson,
-                         Boolean isEnabled) {
-        RuleEntity ruleEntity = ruleRepository.findById(id);
+    public void editRule(RuleRecord ruleRecord) {
+        RuleEntity ruleEntity = ruleRepository.findById(ruleRecord.getId());
         if (ruleEntity != null) {
-            ruleEntity.setPath(path);
-            ruleEntity.setMethod(method);
-            ruleEntity.setCondition(condition);
-            ruleEntity.setReturnHttpCode(returnHttpCode);
-            ruleEntity.setReturnJson(returnJson);
-            ruleEntity.setIsEnabled(isEnabled);
+            ruleEntity.setPath(ruleRecord.getPath());
+            ruleEntity.setMethod(ruleRecord.getMethod());
+            ruleEntity.setCondition(ruleRecord.getCondition());
+            ruleEntity.setReturnHttpCode(ruleRecord.getReturnHttpCode());
+            ruleEntity.setReturnJson(ruleRecord.getReturnJson());
+            ruleEntity.setIsEnabled(ruleRecord.getIsEnabled());
             ruleRepository.save(ruleEntity);
         }
     }
