@@ -7,7 +7,7 @@
     <groupId>http-request-pool</groupId>
     <artifactId>main</artifactId>
     <packaging>pom</packaging>
-    <version>0.1.0-SNAPSHOT</version>
+    <version>1.0-SNAPSHOT</version>
     <modules>
         <module>management</module>
         <module>serve</module>

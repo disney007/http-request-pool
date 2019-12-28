@@ -5,11 +5,11 @@
     <parent>
         <artifactId>main</artifactId>
         <groupId>http-request-pool</groupId>
-        <version>0.1.0-SNAPSHOT</version>
+        <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>serve</artifactId>
+    <artifactId>management</artifactId>
 
     <profiles>
         <profile>
@@ -86,7 +86,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>org.hrp.serve.Application</mainClass>
+                            <mainClass>org.hrp.management.Application</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
@@ -139,6 +139,13 @@
             <optional>true</optional>
         </dependency>
         <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+            <version>${version.spring-boot}</version>
+        </dependency>
+
+
+        <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>${version.lombok}</version>
@@ -149,6 +156,7 @@
             <artifactId>spring-boot-starter-data-mongodb</artifactId>
             <version>${version.spring-boot}</version>
         </dependency>
+
         <dependency>
             <groupId>http-request-pool</groupId>
             <artifactId>lib</artifactId>
